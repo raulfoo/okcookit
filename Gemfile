@@ -32,7 +32,7 @@ gem "json"
 
 
 # For parsing and normalizing video urls
-gem "opengraph"
+#gem "opengraph"
 
 # Payments
 #gem "stripe", :git => "https://github.com/stripe/stripe-ruby"
