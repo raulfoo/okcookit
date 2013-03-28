@@ -1,0 +1,115 @@
+<% content_for :head do %>
+
+     <%= @pinion.js_url("/assets/js/search_mechanics.js") %>
+     <%= @pinion.js_url("/assets/js/recipe_find.js") %>
+     <%= @pinion.js_url("/assets/js/slider.js") %>
+     <%#= @pinion.js_url("/assets/js/dragDrop.js") %>
+     <%= @pinion.css_url("/assets/css/forms.css") %>
+     
+    
+<% end %>
+
+<!--<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-34497905-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>-->
+	
+<div class="wrap">
+ 
+  <h1>Recipes you Want with the Ingredients you Got</h1>
+  <!--<h3> Simple Search: We will send you the best recipes for those ingredients</h3>
+  <h3> Bayesian Search: We use our databse to suggest synergystic ingredients - you do the rest! </h3>-->
+  <div class="inputDescription"></div>
+
+  <%= erb :_flash_errors %>
+  <div class="recipeResponse">
+    <% if defined? recipe_search%>
+     <script> 
+          $(".inputDescription").html("<p class='inputDescriptionText'><%=number_matches%></p>")
+    </script>
+      <% if recipe_search.size > 5 %>
+        <div id="simpleSearchControls">
+          <a id="previousSet"><-</a>
+          <input id="currentPos" type="hidden" value="1"/>
+          <input id="maxSize" type="hidden" value="<%= recipe_search.size %>"/>
+        
+          <span>Showing Recipes <span id="beginning">1</span>-<span id="ending"><%=[recipe_search.size,5].min%></span> of <%=recipe_search.size%></span>
+          <a id="nextSet">-></a>
+        </div>
+      <% end %>
+      <div id="simpleSearchResult">
+        <%= erb :_recipe_search, :locals => {:start => 0, :stop=>4} %>
+      </div>
+    <% elsif defined? bayes_results %>
+      <input id="risk" type="hidden" name="risk" value="10"/>
+      <input type="hidden" id="holder" value="<%=risk_value%>"/>
+      <div id="bayesianResults">
+        <script> 
+          $(".inputDescription").html("<p class='inputDescriptionText'>Give these a whirl. You can modify your ingredient preferences and try again by dragging the ingredients to the appropriate box.</p>")
+          $("#risk").val($("#holder").val())
+          
+        </script>
+        <%= erb :_bayes_results, :locals => {:ingredients => bayes_results, :likelist => likelist, :dislikelist => dislikelist} %>
+        
+      </div>
+    <% end %>
+  </div>
+  <div class="formWrap"> 
+    <form class="standard" action="javascript:void(0);" method="post" >
+    <%if !defined? bayes_results%>
+      <input id="risk" type="hidden" name="risk" value="10"/>
+    <% end %>
+      <table>
+        <tr>
+          <td>
+          
+          </td>
+          <td>
+            <p> Ingredient You Want </p>
+          </td>
+          <td>
+            <p> Ingredient You Don't Want </p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <p class="more"><a class="button">+</a></p>
+          </td>
+          <td>
+            <input type="text" name="like" class="ingredientSearch" placeholder="One per box. Click '+' to add more."/>
+          </td>
+          <td>
+            <input type="text" name="dislike" class="ingredientSearch" placeholder="Optional"/>
+          </td>
+        </tr>
+         <tr>
+          <td>
+            
+          </td>
+          <td>
+            <input type="submit" class="recipeSubmit" id= "simpleSearch" value="Simple Search"/>
+          </td>
+          <td>
+            <input type="submit" class="recipeSubmit" id="bayesianSearch" value="Bayesian Search"/>
+            <div id="slider"></div>
+            <p id="sliderValue"></p>
+            <span id="highRisk">Riskier</span>
+            <span id="lowRisk">Low Risk</span>
+            <p id="sliderDescription">Use the slider to change your results. Numbers close to 10 will be low risk, strongly rooted in existing recipes. Values closer to 0 will be riskier, but with a chance to make something new!</p>
+
+          </td>
+        </tr>
+         
+      </table>
+    </form>
+  </div>
+ 
+</div>

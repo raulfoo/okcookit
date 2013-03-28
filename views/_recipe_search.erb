@@ -1,0 +1,19 @@
+<% if $global_recipe_array.size > 1 %>
+  <% recipes = $global_recipe_array[start.to_i..stop.to_i] %>
+<% else %>
+  <% recipes = $global_recipe_array%>
+<% end %>
+
+<% recipes.each_slice(1) do |recipe| %>
+  <% recipe.each do |rec|%>
+    <div class="recipeDisplayWrap">
+      <div class="recipeImage">
+        <img  src=<%#= rec[:img_url] %> alt="No Photo Available" height=125 width = 125 />
+      </div>
+      <div class="recipeDescription">
+        <a href="<%= rec[:url] %>" target="new"> <%= rec[:recipe_title].cap_words %> </a><br>
+        <p><%= rec[:description] %></p>
+      </div>
+    </div>
+  <% end %>
+<%end%>

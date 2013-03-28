@@ -1,0 +1,178 @@
+@import "css/mixins";
+
+body{
+
+  background-color:#fafafa;
+  overflow-x: hidden;
+
+  .wrap{ 
+    margin: 0 auto; 
+    display: table;
+    max-width: 700px;
+    
+    .inputDescription{
+      min-height: 50px;
+      font-size: 1.5em;
+
+      .inputDescriptionText{
+        background-color: $yellow;
+        padding: 10px;
+        
+      }
+    }
+    
+    h1{
+      max-width: 800px;
+    
+    }
+    
+    .formWrap{
+      width: 600px;
+      
+      p {
+        font-size: 1.5em;
+        display: inline-block;
+      }
+      
+      suggestionDiv{
+        background-color: $lightGray;
+      
+      }
+      
+      #slider{
+        margin-top: 70px;
+        margin-bottom: 20px;
+      }
+      #sliderValue{
+        font-size: 1.1em;
+        text-align: center;
+        margin-left: auto;
+        width: 90%;
+        min-height: 10px;
+        max-height: 10px;
+        
+      }
+      
+      #highRisk{
+        float: left;
+        font-size: 1.3em;
+      }
+      #lowRisk{
+        float: right;
+        font-size: 1.3em;
+      }
+      
+      #sliderDescription {
+        font-size: 1em;
+        padding-top: 5px;
+        }
+      
+    }
+    
+    .recipeResponse{
+      padding: 10px 10px;
+      width: 600px;
+      
+      #simpleSearchControls{
+        font-size: 2em;
+        width: 100%;
+        text-align: center;
+      }
+      
+      #simpleSearchResult{
+        padding: 0px 0px 30px 0px;
+        
+        .recipeDisplayWrap{
+          display: table;
+          background-color: $lightGray;
+          padding: 10px;
+          width: 100%;
+          
+          .recipeImage{
+            display: table-cell;
+            width: 125px;
+          }
+          
+          .recipeDescription{
+            display: table-cell;
+            vertical-align: top;
+            padding-left: 10px;
+          }
+        }
+      }
+      
+      #bayesianResults{
+        padding: 0px 0px 30px 0px;
+        overflow: visible;
+        display: table;
+        width: 100%;
+        
+        p{ 
+          text-align: center;
+          font-size: 1.2em;
+          }
+        
+        a{ margin:5px;}
+        
+        #likesWrapper{
+          display: table-cell;
+          
+          #dropLikes{
+            color: $darkGreen;
+          }
+          
+          #dropDislikes{
+            color: $red;
+          }
+          
+          .updatePrefs{
+            min-width: 150px;
+            min-height: 100px;
+            max-width: 200px;
+            max-height: 200px;
+            border-style: solid;
+            border-width: 1px;
+            border-color: $darkGray;
+            z-index: 0;
+            background-color: 'transparent';
+            font-size: 1.3em;
+            padding: 4px;
+            
+          
+          }
+        
+        }
+        
+        
+        #suggestionWrapper{
+          display: table-cell;
+          padding-left: 30px;
+          width: 100%;
+          margin-top: 35px;
+         
+        
+        
+          ul {
+            column-count:2; -moz-column-count:2; -webkit-column-count:2; 
+            column-gap:.5 em; -moz-column-gap:.5 em; -webkit-column-gap: .5em;
+            font-size: 1.5em;
+            position: relative;
+            top: 35px;
+           
+            
+            li{
+              z-index: 200;
+            }
+          }
+        }
+        
+        #tryAgainSubmit{
+          display: table-cell;
+          position: relative;
+          vertical-align: middle;
+        
+        }
+      }
+    }
+  }
+}

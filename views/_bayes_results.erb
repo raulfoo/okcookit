@@ -1,0 +1,24 @@
+<% content_for :head do %>
+   <%= @pinion.js_url("/assets/js/dragDrop.js") %>
+
+<% end %>
+
+<div id="likesWrapper">
+  <p> Likes <p>
+  <div id="dropLikes" class="updatePrefs"><%=likelist%></div>
+  <p> Dislikes <p>
+  <div id="dropDislikes" class="updatePrefs"><%=dislikelist%></div>
+
+</div>
+<div id="suggestionWrapper">
+  <ul>
+    <% ingredients.each do |ingredient| %>
+     <!-- set these links as class "draggable"? -->
+      <li class="draggable"><%= ingredient.cap_words %></li>
+    <% end %>
+  </ul>
+</div>
+<div id="tryAgainSubmit">
+<a class="button" id="tryAgain">Search Again</a>
+<a class="button" id="resetPrefs">Reset Search Preferences</a>
+</div>

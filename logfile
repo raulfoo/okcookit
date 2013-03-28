@@ -1,0 +1,38 @@
+postgres cannot access the server configuration file "/Library/PostgreSQL/8.4/data/postgresql.conf": No such file or directory
+LOG:  database system was shut down at 2013-01-30 20:35:04 PST
+LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+FATAL:  database "got" does not exist
+ERROR:  null value in column "board_name" violates not-null constraint
+DETAIL:  Failing row contains (1, 0, 199, 229, null).
+STATEMENT:  INSERT INTO "boards" ("turn_number", "x_pos", "y_pos") VALUES (0, 199, 229) RETURNING *
+ERROR:  null value in column "turn_number" violates not-null constraint
+DETAIL:  Failing row contains (1, f8cdc707361f4f0e8eaa337741508d92, null, 946px, 308px, null, images/GameofThronesMapForWebAug31.jpg).
+STATEMENT:  INSERT INTO "boards" ("start_x", "start_y", "location", "public_id") VALUES ('946px', '308px', 'images/GameofThronesMapForWebAug31.jpg', 'f8cdc707361f4f0e8eaa337741508d92') RETURNING *
+ERROR:  value too long for type character varying(8)
+STATEMENT:  INSERT INTO "boards" ("start_x", "start_y", "location", "public_id") VALUES ('930.6000366210938px', '299.20001220703125px', 'images/GameofThronesMapForWebAug31.jpg', 'b335b3f79f074f87bcc168a7a22820f0') RETURNING *
+ERROR:  null value in column "board_name" violates not-null constraint
+DETAIL:  Failing row contains (1, d7b9574fa5e94b398e1db6c1af7282f4, 946px, 308px, null, images/GameofThronesMapForWebAug31.jpg).
+STATEMENT:  INSERT INTO "boards" ("start_x", "start_y", "location", "public_id") VALUES ('946px', '308px', 'images/GameofThronesMapForWebAug31.jpg', 'd7b9574fa5e94b398e1db6c1af7282f4') RETURNING *
+ERROR:  relation "board_setup" does not exist at character 15
+STATEMENT:  select * from board_setup;
+ERROR:  null value in column "house_name" violates not-null constraint
+DETAIL:  Failing row contains (1, 1, 921, 430, 20f09e94b0e14bed9c469b4b4075b748916425, null).
+STATEMENT:  INSERT INTO "board_setups" ("turn_number", "x_pos", "y_pos", "board_id") VALUES (1, 921, 430, '20f09e94b0e14bed9c469b4b4075b748916425') RETURNING *
+ERROR:  column "public_id" does not exist at character 53
+STATEMENT:  SELECT "x_pos", "y_pos" FROM "board_setups" WHERE (("public_id" IS NULL) AND ("turn_number" = '1'))
+ERROR:  syntax error at or near "board_setups" at character 8
+STATEMENT:  delete board_setups;
+ERROR:  relation "board_setupds" does not exist at character 13
+STATEMENT:  delete from board_setupds;
+ERROR:  syntax error at or near "WHERE" at character 62
+STATEMENT:  SELECT "x_pos", "y_pos" FROM "board_setups" INNER JOIN "','" WHERE (("board_id" IS NULL) AND ("turn_number" = '1'))
+ERROR:  syntax error at or near "WHERE" at character 62
+STATEMENT:  SELECT "x_pos", "y_pos" FROM "board_setups" INNER JOIN "','" WHERE (("board_id" IS NULL) AND ("turn_number" = 1))
+ERROR:  syntax error at or near "WHERE" at character 62
+STATEMENT:  SELECT "x_pos", "y_pos" FROM "board_setups" INNER JOIN "','" WHERE (("board_id" IS NULL) AND ("turn_number" = 1))
+FATAL:  terminating connection due to administrator command
+LOG:  received smart shutdown request
+LOG:  autovacuum launcher shutting down
+LOG:  shutting down
+LOG:  database system is shut down
