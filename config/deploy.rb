@@ -8,12 +8,12 @@ end
 def set_common_environment
   env :db_host, "localhost"
   env :db_name, "OKC"
-  env :db_user, "postgres"
+  env :db_user, "okcookit"
 end
 
 set :app, "okcookit"
 set_application_paths(app)
-set :user, "postgres"
+set :user, "okcookit"
 
 role :root_user, :user => "root"
 role :okcookit_user, :user => "okcookit"
