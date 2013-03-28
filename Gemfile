@@ -27,17 +27,15 @@ gem "aws-s3"
 #gem "pony"
 #For cron tasks to retrieve social media analytics
 gem "json"
-gem "nokogiri"
+
 #gem "whenever"
 
-#For meme generator
-#gem "rmagick"
 
 # For parsing and normalizing video urls
 gem "opengraph"
 
 # Payments
-gem "stripe", :git => "https://github.com/stripe/stripe-ruby"
+#gem "stripe", :git => "https://github.com/stripe/stripe-ruby"
 
 group :development do
   gem "foreman"
