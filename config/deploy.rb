@@ -7,32 +7,32 @@ end
 
 def set_common_environment
   env :db_host, "localhost"
-  env :db_name, "OKC"
-  env :db_user, "okcookit"
+  env :db_name, "okc"
+  env :db_user, "cookit"
 end
 
-set :app, "okcookit"
+set :app, "cookit"
 set_application_paths(app)
-set :user, "okcookit"
+set :user, "cookit"
 
 role :root_user, :user => "root"
-role :okcookit_user, :user => "okcookit"
+role :cookit_user, :user => "cookit"
 
 destination :vagrant do
-  set :domain, "okcookit-vagrant"
+  set :domain, "cookit-vagrant"
   set_common_environment
   env :rack_env, "production"
   env :port, 7200
 end
 
 destination :staging do
-  set :app, "okcookit_staging"
+  set :app, "cookit_staging"
   set_application_paths(app)
   set :domain, "173.255.223.11"
   set_common_environment
   env :rack_env, "staging"
   env :db_name, "okc_staging"
-  env :db_user, "okcookit_staging"
+  env :db_user, "cookit_staging"
   env :port, 7100
   env :unicorn_workers, 2
   env :s3_bucket, "staging.okcookit.com"
@@ -43,7 +43,7 @@ destination :prod do
   set_common_environment
   env :rack_env, "production"
   env :db_name, "okc"
-  env :db_user, "okcookit"
+  env :db_user, "cookit"
   env :port, 7200
   env :unicorn_workers, 10
   env :s3_bucket, "okcookit.com"
