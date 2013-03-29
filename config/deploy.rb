@@ -22,7 +22,7 @@ destination :vagrant do
   set :domain, "okcookit-vagrant"
   set_common_environment
   env :rack_env, "production"
-  env :port, 7200
+  env :port, 5200
 end
 
 destination :staging do
@@ -33,7 +33,7 @@ destination :staging do
   env :rack_env, "staging"
   env :db_name, "okc_staging"
   env :db_user, "okcookit_staging"
-  env :port, 7100
+  env :port, 5100
   env :unicorn_workers, 2
   env :s3_bucket, "staging.okcookit.com"
 end
@@ -44,7 +44,7 @@ destination :prod do
   env :rack_env, "production"
   env :db_name, "okc"
   env :db_user, "okcookit"
-  env :port, 7200
+  env :port, 5200
   env :unicorn_workers, 10
   env :s3_bucket, "okcookit.com"
 end
