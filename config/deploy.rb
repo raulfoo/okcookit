@@ -7,7 +7,7 @@ end
 
 def set_common_environment
   env :db_host, "localhost"
-  env :db_name, "okc"
+  env :db_name, "okcookit"
   env :db_user, "okcookit"
 end
 
@@ -31,7 +31,7 @@ destination :staging do
   set :domain, "173.255.223.11"
   set_common_environment
   env :rack_env, "staging"
-  env :db_name, "okc_staging"
+  env :db_name, "okcookit_staging"
   env :db_user, "okcookit_staging"
   env :port, 5100
   env :unicorn_workers, 2
@@ -42,7 +42,7 @@ destination :prod do
   set :domain, "173.255.223.11"
   set_common_environment
   env :rack_env, "production"
-  env :db_name, "okc"
+  env :db_name, "okcookit"
   env :db_user, "okcookit"
   env :port, 5200
   env :unicorn_workers, 10
