@@ -5,4 +5,4 @@ if [ -f environment.sh ]; then
   source environment.sh
 fi
 
-bundle exec unicorn -c config/unicorn.CookIt.conf
+bundle exec unicorn -c config/unicorn.OkCookIt.conf

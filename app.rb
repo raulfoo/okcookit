@@ -14,7 +14,7 @@ require "lib/currency"
 require "lib/ingredient_search"
 require "lib/recipe_finder"
 
-class CookIt < Sinatra::Base
+class OkCookIt < Sinatra::Base
   enable :sessions
   set :session_secret, "abcdefghijklmnop"
   set :views, "views"
