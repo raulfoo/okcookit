@@ -38,7 +38,8 @@ $(document).ready ->
   
 #$(".ingredientSearch").live "change", (e)->
   #$(this).parent().children().eq(1).remove()
-      
+
+  
   $(".ingredientSearch").live "keyup", (e)->
       
       inputUse = $(this)

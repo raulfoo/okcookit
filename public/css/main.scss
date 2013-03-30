@@ -11,7 +11,7 @@ body{
     max-width: 700px;
     
     .inputDescription{
-      min-height: 50px;
+      min-height: 100px;
       font-size: 1.5em;
 
       .inputDescriptionText{
@@ -39,35 +39,38 @@ body{
       
       }
       
-      #slider{
-        margin-top: 70px;
-        margin-bottom: 20px;
-      }
-      #sliderValue{
-        font-size: 1.1em;
-        text-align: center;
-        margin-left: auto;
-        width: 90%;
-        min-height: 10px;
-        max-height: 10px;
+      #sliderWrap{
+      
+        #slider{
+          margin-top: 70px;
+          margin-bottom: 20px;
+        }
+        #sliderValue{
+          font-size: 1.1em;
+          text-align: center;
+          margin-left: auto;
+          width: 90%;
+          min-height: 10px;
+          max-height: 10px;
+          
+        }
         
-      }
-      
-      #highRisk{
-        float: left;
-        font-size: 1.3em;
-      }
-      #lowRisk{
-        float: right;
-        font-size: 1.3em;
-      }
-      
-      #sliderDescription {
-        font-size: 1em;
-        padding-top: 5px;
+        #highRisk{
+          float: left;
+          font-size: 1.3em;
+        }
+        #lowRisk{
+          float: right;
+          font-size: 1.3em;
+        }
+        
+        #sliderDescription {
+          font-size: 1em;
+          padding-top: 5px;
+          }
         }
       
-    }
+      }
     
     .recipeResponse{
       padding: 10px 10px;

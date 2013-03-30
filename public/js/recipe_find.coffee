@@ -27,7 +27,11 @@ $(document).ready ->
     $(".inputDescription").html("")
   $(".more").click (e) ->
     $(".inputDescription").html("")
- 
+    
+  $("#sliderWrap").hover (e) ->
+    $(".inputDescription").html("<p class='inputDescriptionText'> Use the slider to change your results. Numbers close to 10 will be low risk, strongly rooted in existing recipes. Values closer to 0 will be riskier, but with a chance to make something new!</p>")
+  $("#sliderWrap").mouseout (e) ->
+    $(".inputDescription").html("")
   
   $("#previousSet").click (e) ->
     start = parseInt($("#currentPos").val())
