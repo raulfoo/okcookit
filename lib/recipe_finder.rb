@@ -1,6 +1,6 @@
-require "benchmark"
 
-class CookIt < Sinatra::Base
+
+class OkCookIt < Sinatra::Base
 
   post "/search_recipe" do
     likes = Array.new()

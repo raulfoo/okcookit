@@ -1,4 +1,4 @@
-class CookIt < Sinatra::Base
+class OkCookIt < Sinatra::Base
 
   get "/search_suggest" do
     
